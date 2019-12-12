@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>BizTalkComponents.PipelineComponents.CustomJsonCoders</id>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <title>Custom Json Coders</title>
     <authors>Wael Alissa</authors>
     <owners>Wael Alissa</owners>
