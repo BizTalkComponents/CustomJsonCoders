@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>BizTalkComponents.PipelineComponents.CustomJsonCoders</id>
+    <version>1.0.0</version>
+    <title>Custom Json Coders</title>
+    <authors>Wael Alissa</authors>
+    <owners>Wael Alissa</owners>
+    <projectUrl>https://github.com/BizTalkComponents/CustomJsonCoders</projectUrl>
+    <releaseNotes>Initial release.</releaseNotes>
+    <copyright>Copyright 2019</copyright>
+    <tags>BizTalk</tags>    
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Encoding/Decoding JSON arrays in BizTalk.</description>    
+  </metadata>
+  <files>
+    <file src="bin\release\BizTalkComponents.PipelineComponents.CustomJSON.dll" target="lib\net45"/>
+  </files>
+</package>
