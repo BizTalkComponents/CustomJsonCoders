@@ -16,7 +16,7 @@ namespace BizTalkComponents.PipelineComponents.CustomJsonCoders
         [RequiredRuntime]
         [DisplayName("Root Node")]
         [Description("Specify the root node name to be used in the generated xml")]
-        public string RootNode{ get; set; }
+        public string RootNode { get; set; }
 
         [DisplayName("RootNode Namespace")]
         [Description("Specify the namespace to be used in the generated xml")]
@@ -25,6 +25,9 @@ namespace BizTalkComponents.PipelineComponents.CustomJsonCoders
         [DisplayName("Array Node Name")]
         [Description("the root child node  name to be used in the generated xml that represents the JSON array, the default name is data.")]
         public string ArrayNodeName { get; set; }
+
+
+        public bool AddMessageBodyForEmptyMessage { get; set; }
 
         private const int buffLength = 1024;
 
@@ -42,14 +45,14 @@ namespace BizTalkComponents.PipelineComponents.CustomJsonCoders
                 throw new ArgumentException(errorMessage);
             }
             var originalStream = pInMsg.BodyPart.GetOriginalDataStream();
-            var data = new EncapsulatorStream(originalStream, ArrayNodeName);           
+            var data = new EncapsulatorStream(originalStream, ArrayNodeName);
             pInMsg.BodyPart.Data = data;
             var jdecoder = new Microsoft.BizTalk.Component.JsonDecoder
             {
                 RootNode = this.RootNode,
                 RootNodeNamespace = this.RootNodeNamespace,
-                AddMessageBodyForEmptyMessage = true,
-            };            
+                AddMessageBodyForEmptyMessage = this.AddMessageBodyForEmptyMessage,
+            };
             jdecoder.Execute(pContext, pInMsg);
             return pInMsg;
         }
