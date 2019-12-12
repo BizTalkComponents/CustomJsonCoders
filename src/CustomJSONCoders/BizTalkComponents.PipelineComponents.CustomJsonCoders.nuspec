@@ -14,6 +14,6 @@
     <description>Encoding/Decoding JSON arrays in BizTalk.</description>    
   </metadata>
   <files>
-    <file src="bin\release\BizTalkComponents.PipelineComponents.CustomJSON.dll" target="lib\net45"/>
+    <file src="bin\release\BizTalkComponents.PipelineComponents.CustomJsonCoders.dll" target="lib\net45"/>
   </files>
 </package>
