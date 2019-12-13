@@ -66,29 +66,27 @@ namespace BizTalkComponents.PipelineComponents.CustomJsonCoders
                 var ms = new MemoryStream();
                 var writer = new StreamWriter(ms, reader.CurrentEncoding);
 
-                int offset = 0, bytesToRead = 0, postion = 0;
+                int offset = 0, bytesToRead = 0;
                 long streamLength = stream.Length;
                 var buff = new char[buffLength];
                 bytesToRead = buffLength;
                 int bytesRead = reader.Read(buff, 0, bytesToRead);
-                postion += bytesRead;
                 while (offset < bytesRead & buff[offset] != ':')
                     offset++;
                 offset++;
                 bytesRead = bytesRead - offset;
                 bool skipReading = true;
-                while (skipReading | postion < streamLength)
+                while (skipReading | stream.Position < streamLength)
                 {
                     if (!skipReading)
                     {
-                        if (streamLength - postion < buffLength)
-                            bytesToRead = (int)(streamLength - postion);
+                        if (streamLength - stream.Position < buffLength)
+                            bytesToRead = (int)(streamLength - stream.Position);
                         else
                             bytesToRead = buffLength;
                         bytesRead = reader.ReadBlock(buff, 0, bytesToRead);
-                        postion += bytesRead;
                     }
-                    if (reader.EndOfStream)
+                    if (reader.EndOfStream & bytesRead > 0)
                         bytesRead--;
                     writer.Write(buff, offset, bytesRead);
                     skipReading = false;
