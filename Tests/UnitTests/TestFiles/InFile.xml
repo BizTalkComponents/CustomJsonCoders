@@ -1,0 +1,25 @@
+﻿<s0:TemporaryRecord xmlns:s0="http://INT055.Users.Schemas.Vieri.LoadUsers" xmlns:ns0="http://INT055.Users.Schemas.Internal.Users"><LoadUsers><ExternalId>
+    </ExternalId><FirstName>Innkjøp</FirstName><LastName>THONkombinertANV</LastName><EmployeeNumber>
+    </EmployeeNumber><Email>dago@olavthon.no</Email><PhoneNumber>
+    </PhoneNumber><Language>
+    </Language><IsActive>true</IsActive><UserGroupsExternalId>THONkombinertANV</UserGroupsExternalId><UserGroupsExternalId>THONkombinertANV</UserGroupsExternalId></LoadUsers><LoadUsers><ExternalId>
+    </ExternalId><FirstName>Innkjøp</FirstName><LastName>THONkombinertATT</LastName><EmployeeNumber>
+    </EmployeeNumber><Email>dago@olavthon.no</Email><PhoneNumber>
+    </PhoneNumber><Language>
+    </Language><IsActive>true</IsActive><UserGroupsExternalId>THONkombinertATT</UserGroupsExternalId></LoadUsers><LoadUsers><ExternalId>OTG\BJOMEL</ExternalId><FirstName>Miguel</FirstName><LastName>Castro</LastName><EmployeeNumber>
+    </EmployeeNumber><Email>miguel.castro@olavthon.no</Email><PhoneNumber>
+    </PhoneNumber><Language>nb-NO</Language><IsActive>true</IsActive><UserGroupsExternalId>OTG\DSOST17</UserGroupsExternalId><UserGroupsExternalId>OTG\DSOST17</UserGroupsExternalId><UserGroupsExternalId>OTG\DSOST17</UserGroupsExternalId><UserGroupsExternalId>OTG\DSOST17</UserGroupsExternalId></LoadUsers><LoadUsers><ExternalId>OTG\CHROLS</ExternalId><FirstName>Arne Marius</FirstName><LastName>Berg</LastName><EmployeeNumber>
+    </EmployeeNumber><Email>berg@thonhotels.no</Email><PhoneNumber>
+    </PhoneNumber><Language>nb-NO</Language><IsActive>true</IsActive><UserGroupsExternalId>OTG\ARNE.BERG</UserGroupsExternalId><UserGroupsExternalId>OTG\ARNE.BERG</UserGroupsExternalId></LoadUsers><LoadUsers><ExternalId>OTG\ADM</ExternalId><FirstName>Per</FirstName><LastName>Griwell</LastName><EmployeeNumber>
+    </EmployeeNumber><Email>per.griwell@thonhotels.no</Email><PhoneNumber>
+    </PhoneNumber><Language>nb-NO</Language><IsActive>true</IsActive><UserGroupsExternalId>OTG\PERGRI</UserGroupsExternalId><UserGroupsExternalId>OTG\PERGRI</UserGroupsExternalId></LoadUsers><LoadUsers><ExternalId>OTG\DSKJOPSENT</ExternalId><FirstName>Jan</FirstName><LastName>Karlsen</LastName><EmployeeNumber>
+    </EmployeeNumber><Email>jan.karlsen@olavthon.no</Email><PhoneNumber>
+    </PhoneNumber><Language>nb-NO</Language><IsActive>true</IsActive><UserGroupsExternalId>OTG\DSOST24</UserGroupsExternalId><UserGroupsExternalId>OTG\DSOST24</UserGroupsExternalId></LoadUsers><LoadUsers><ExternalId>
+    </ExternalId><FirstName>Innkjøp</FirstName><LastName>THON102010att</LastName><EmployeeNumber>
+    </EmployeeNumber><Email>dago@olavthon.no</Email><PhoneNumber>
+    </PhoneNumber><Language>
+    </Language><IsActive>true</IsActive><UserGroupsExternalId>THON102010att</UserGroupsExternalId></LoadUsers><LoadUsers><ExternalId>
+    </ExternalId><FirstName>Innkjøp</FirstName><LastName>THON102010anv</LastName><EmployeeNumber>
+    </EmployeeNumber><Email>dago@olavthon.no</Email><PhoneNumber>
+    </PhoneNumber><Language>
+    </Language><IsActive>true</IsActive><UserGroupsExternalId>THON102010anv</UserGroupsExternalId><UserGroupsExternalId>THON102010anv</UserGroupsExternalId><UserGroupsExternalId>THON102010anv</UserGroupsExternalId></LoadUsers></s0:TemporaryRecord>
