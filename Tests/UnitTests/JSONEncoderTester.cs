@@ -23,7 +23,7 @@ namespace BizTalkComponents.PipelineComponents.CustomJsonCoders.Tests.UnitTests
                 RemoveOuterEnvelope = true
             };            
             pipeline.AddComponent(component, PipelineStage.Encode);
-            var message = MessageHelper.CreateFromString(Properties.Resources.ArrayOfEvents);
+            var message = MessageHelper.CreateFromStream(TestHelper.GetTestStream("ArrayOfEvents.xml"));
             var output = pipeline.Execute(message);
             var retStr = MessageHelper.ReadString(output);
             var JsonObj = Newtonsoft.Json.JsonConvert.DeserializeObject(retStr);
@@ -40,7 +40,7 @@ namespace BizTalkComponents.PipelineComponents.CustomJsonCoders.Tests.UnitTests
                 RemoveOuterEnvelope = true
             };
             pipeline.AddComponent(component, PipelineStage.Encode);
-            var message = MessageHelper.CreateFromString(Properties.Resources.DifferentEvents);
+            var message = MessageHelper.CreateFromStream(TestHelper.GetTestStream("DifferentEvents.xml"));
             var output = pipeline.Execute(message);
             var stream = new StreamReader(output.BodyPart.GetOriginalDataStream(), Encoding.UTF8);
             var retStr = stream.ReadToEnd();
@@ -57,7 +57,7 @@ namespace BizTalkComponents.PipelineComponents.CustomJsonCoders.Tests.UnitTests
                 RemoveOuterEnvelope = true
             };
             pipeline.AddComponent(component, PipelineStage.Encode);
-            var message = MessageHelper.CreateFromString(Properties.Resources.EmptyEvents);
+            var message = MessageHelper.CreateFromStream(TestHelper.GetTestStream("EmptyEvents.xml"));
             var output = pipeline.Execute(message);
             var stream = new StreamReader(output.BodyPart.GetOriginalDataStream(), Encoding.UTF8);
             var retStr = stream.ReadToEnd();

@@ -61,41 +61,45 @@ namespace BizTalkComponents.PipelineComponents.CustomJsonCoders
             jencoder.Execute(pContext, pInMsg);
             if (ArrayOutput & data.IsFirstLevelArray)
             {
-                var stream = pInMsg.BodyPart.GetOriginalDataStream();
-                StreamReader reader = new StreamReader(stream);
-                var ms = new MemoryStream();
-                var writer = new StreamWriter(ms, reader.CurrentEncoding);
+                var reader = pInMsg.BodyPart.GetOriginalDataStream();
+                var writer = new MemoryStream();
+                long streamLength = reader.Length;
 
-                int offset = 0, bytesToRead = 0;
-                long streamLength = stream.Length;
-                var buff = new char[buffLength];
-                bytesToRead = buffLength;
+                int offset = 0, bytesToRead = buffLength, curPos = 0, firstChar = -1;
+                var buff = new byte[buffLength];
                 int bytesRead = reader.Read(buff, 0, bytesToRead);
+                curPos += bytesRead;
                 while (offset < bytesRead & buff[offset] != ':')
+                {
+                    if (firstChar < 0 & buff[offset] == '{')
+                        firstChar = offset;
                     offset++;
+                }
+                writer.Write(buff, 0, firstChar);
                 offset++;
                 bytesRead = bytesRead - offset;
                 bool skipReading = true;
-                while (skipReading | stream.Position < streamLength)
+                while (skipReading | curPos < streamLength)
                 {
                     if (!skipReading)
                     {
-                        if (streamLength - stream.Position < buffLength)
-                            bytesToRead = (int)(streamLength - stream.Position);
+                        if (streamLength - curPos < buffLength)
+                            bytesToRead = (int)(streamLength - curPos);
                         else
                             bytesToRead = buffLength;
-                        bytesRead = reader.ReadBlock(buff, 0, bytesToRead);
+                        bytesRead = reader.Read(buff, 0, bytesToRead);
+                        curPos += bytesRead;
                     }
-                    if (reader.EndOfStream & bytesRead > 0)
+                    if (curPos == streamLength & bytesRead > 0)
                         bytesRead--;
                     writer.Write(buff, offset, bytesRead);
                     skipReading = false;
                     offset = 0;
                 }
                 writer.Flush();
-                ms.Seek(0, SeekOrigin.Begin);
-                pInMsg.BodyPart.Data = ms;
-                pContext.ResourceTracker.AddResource(ms);
+                writer.Seek(0, SeekOrigin.Begin);
+                pInMsg.BodyPart.Data = writer;
+                pContext.ResourceTracker.AddResource(writer);
             }
             return pInMsg;
         }
