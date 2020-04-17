@@ -62,7 +62,7 @@ namespace BizTalkComponents.PipelineComponents.CustomJsonCoders.Tests.UnitTests
             var stream = new StreamReader(output.BodyPart.GetOriginalDataStream(), Encoding.UTF8);
             var retStr = stream.ReadToEnd();
             var JsonObj = Newtonsoft.Json.JsonConvert.DeserializeObject(retStr);
-            Assert.IsFalse(JsonObj is Newtonsoft.Json.Linq.JArray);
+            Assert.IsTrue(JsonObj is Newtonsoft.Json.Linq.JArray);
         }
 
         [TestMethod]

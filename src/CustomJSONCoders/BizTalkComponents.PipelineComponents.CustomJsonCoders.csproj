@@ -60,6 +60,10 @@
       <HintPath>C:\Windows\assembly\GAC_MSIL\Microsoft.BizTalk.Streaming\3.0.1.0__31bf3856ad364e35\Microsoft.BizTalk.Streaming.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.XLANGs.BaseTypes, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -75,6 +79,7 @@
     <Compile Include="BiztalkComponents.Utils\RequiredRuntimeAttribute.cs" />
     <Compile Include="BiztalkComponents.Utils\ValidationHelper.cs" />
     <Compile Include="Internal\EncapsulatorStream.cs" />
+    <Compile Include="Internal\JSONModifier.cs" />
     <Compile Include="Internal\XmlArrayDetectorStream.cs" />
     <Compile Include="JSONDecoder.cs" />
     <Compile Include="JSONDecoder.Components.cs" />
