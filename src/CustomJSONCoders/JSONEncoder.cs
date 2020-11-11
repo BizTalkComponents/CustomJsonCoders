@@ -59,47 +59,13 @@ namespace BizTalkComponents.PipelineComponents.CustomJsonCoders
                 RemoveOuterEnvelope = this.RemoveOuterEnvelope | ArrayOutput
             };
             jencoder.Execute(pContext, pInMsg);
-            if (ArrayOutput & data.IsFirstLevelArray)
+            if (ArrayOutput & (data.IsFirstLevelArray | !data.HasRootNodeChildren))
             {
-                var reader = pInMsg.BodyPart.GetOriginalDataStream();
-                var writer = new MemoryStream();
-                long streamLength = reader.Length;
-
-                int offset = 0, bytesToRead = buffLength, curPos = 0, firstChar = -1;
-                var buff = new byte[buffLength];
-                int bytesRead = reader.Read(buff, 0, bytesToRead);
-                curPos += bytesRead;
-                while (offset < bytesRead & buff[offset] != ':')
-                {
-                    if (firstChar < 0 & buff[offset] == '{')
-                        firstChar = offset;
-                    offset++;
-                }
-                writer.Write(buff, 0, firstChar);
-                offset++;
-                bytesRead = bytesRead - offset;
-                bool skipReading = true;
-                while (skipReading | curPos < streamLength)
-                {
-                    if (!skipReading)
-                    {
-                        if (streamLength - curPos < buffLength)
-                            bytesToRead = (int)(streamLength - curPos);
-                        else
-                            bytesToRead = buffLength;
-                        bytesRead = reader.Read(buff, 0, bytesToRead);
-                        curPos += bytesRead;
-                    }
-                    if (curPos == streamLength & bytesRead > 0)
-                        bytesRead--;
-                    writer.Write(buff, offset, bytesRead);
-                    skipReading = false;
-                    offset = 0;
-                }
-                writer.Flush();
-                writer.Seek(0, SeekOrigin.Begin);
-                pInMsg.BodyPart.Data = writer;
-                pContext.ResourceTracker.AddResource(writer);
+                var stream = pInMsg.BodyPart.GetOriginalDataStream();
+                StreamReader reader = new StreamReader(stream, true);
+                var ms = JSONModifier.ConvertToJArray(new Newtonsoft.Json.JsonTextReader(reader));
+                pInMsg.BodyPart.Data = ms;
+                pContext.ResourceTracker.AddResource(ms);
             }
             return pInMsg;
         }

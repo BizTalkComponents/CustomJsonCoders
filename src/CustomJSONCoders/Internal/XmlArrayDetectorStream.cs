@@ -8,9 +8,9 @@ using System.IO;
 using System.Xml;
 namespace BizTalkComponents.PipelineComponents.CustomJsonCoders.Internal
 {
-    class XmlArrayDetectorStream : XmlTranslatorStream
+    internal class XmlArrayDetectorStream : XmlTranslatorStream
     {
-
+        internal bool HasRootNodeChildren { get; private set; }
         public bool IsFirstLevelArray
         {
             get
@@ -33,6 +33,7 @@ namespace BizTalkComponents.PipelineComponents.CustomJsonCoders.Internal
         {
             if (m_reader.Depth == 1)
             {
+                HasRootNodeChildren = true;
                 if (string.IsNullOrEmpty(m_arrayNodeName))
                 {
                     m_arrayNodeName = m_reader.LocalName;
