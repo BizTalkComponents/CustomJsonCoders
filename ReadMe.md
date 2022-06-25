@@ -1,3 +1,4 @@
+[![Build status](https://ibizsolutions.visualstudio.com/BizTalkComponents/_apis/build/status/CustomJsonCoders)](https://ibizsolutions.visualstudio.com/BizTalkComponents/_build/latest?definitionId=604)
 # Custom Json Coders
 Encoding/Decoding JSON arrays in BizTalk, besides JSON objects as usual in BizTalk.
 The components are based on the usual BizTalk JSON Encoder/JSON Decoder, there are some additional properties to handle the JSON array.
