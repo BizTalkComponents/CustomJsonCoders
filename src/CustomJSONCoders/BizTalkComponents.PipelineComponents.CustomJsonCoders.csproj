@@ -88,7 +88,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="BizTalkComponents.PipelineComponents.CustomJsonCoders.nuspec" />
+    <None Include="CustomJsonCoders.nuspec" />
     <None Include="CustomJSON.snk" />
     <None Include="packages.config" />
   </ItemGroup>
